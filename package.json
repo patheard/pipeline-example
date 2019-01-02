@@ -1,0 +1,28 @@
+{
+  "name": "pipeline-example",
+  "version": "1.0.0",
+  "description": "Simple demo project showing how a CI/CD pipeline can be used to build, test and deploy a project.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/patheard/pipeline-example.git"
+  },
+  "keywords": [
+    "pipeline",
+    "ci",
+    "cd"
+  ],
+  "author": "Pat Heard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/patheard/pipeline-example/issues"
+  },
+  "homepage": "https://gitlab.com/patheard/pipeline-example#README",
+  "dependencies": {
+    "server": "^1.0.18"
+  }
+}
