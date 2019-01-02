@@ -1,0 +1,45 @@
+/* Input elements with an icon */
+.input-icon {
+    position: relative;
+    z-index: 1;
+}
+
+.input-icon input {
+    font-size: 1.5em !important;
+    padding: 1.2em 60px 1.2em 1em !important;    
+}
+
+.input-icon .icon {
+    position: absolute;
+    right: 1em;
+    top: .8em;
+    width: 55px;
+    color: #ccc;
+    transition: color .3s;
+}
+
+.input-icon input:focus + .icon {
+    color: #3691f7;
+}
+
+.icon-link {
+    text-decoration: none !important;
+}
+
+.icon-link strong {
+    text-decoration: underline;
+}
+
+.icon-link .meta {
+    display: block;
+    font-size: .9em
+}
+
+.width-100 {
+    width: 100% !important;
+}
+
+.table td {
+    padding-top: 1em !important;
+    padding-bottom: 1em !important;
+}
