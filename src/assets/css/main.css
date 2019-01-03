@@ -22,8 +22,31 @@
     color: #3691f7;
 }
 
+/* Links with a large icon in search results */
 .icon-link {
+    display: block;
+    box-sizing: border-box;
+    padding: 1em;
+    margin-top: 2em;
+
     text-decoration: none !important;
+
+    background: #f2f2f2;    
+    border-radius: 4px;
+    transition: all .1s;
+}
+
+.icon-link svg {
+    float: left;
+    margin-top: .1em;
+    margin-right: .3em;
+    padding-right: .3em;
+    padding-bottom: .1em;
+
+    font-size: 2.4em;
+
+    border-right: 1px solid #ccc;
+    transition: all .1s;
 }
 
 .icon-link strong {
@@ -35,8 +58,26 @@
     font-size: .9em
 }
 
+.icon-link:hover {
+    background: #ededed;
+}
+
+.icon-link:hover svg {
+    color: #3691f7;
+    border-color: #bbb;
+}
+
 .width-100 {
     width: 100% !important;
+}
+
+/* WET style fixes */
+h1 {
+    border: 0;
+}
+
+a:visited {
+    color: #284162;
 }
 
 .table td {

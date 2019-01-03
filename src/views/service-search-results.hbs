@@ -1,0 +1,10 @@
+<h2 class="mrgn-lft-md">Services found: {{services.length}}</h2>
+{{#each services}}
+<div class="col-md-6">
+    <a href="#" class="icon-link">
+        <span class="fa {{this.icon}} fa-fw"></span> 
+        <strong class="link">{{this.name}}</strong>
+        <span class="meta">{{this.location}}</span>
+    </a>
+</div>
+{{/each}}
