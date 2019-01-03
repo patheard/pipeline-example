@@ -1,11 +1,21 @@
 /** A simple HTTP server */
-
 const server = require('server');
-const { get, post, put, del } = server.router;
+const { get } = server.router;
 const { render } = server.reply;
+const services = require('./src/controllers/services');
 
-// Render the homepage for `/`
-const home = get('/', ctx => render('index.html'));
+// Server options
+const options = {
+    port: 8080,
+    public: 'src/assets',   // static assets
+    views: 'src/views'      // views used to render the response
+};
 
 // Launch the server
-server(home);
+server(
+    options,
+    [        
+        get('/', ctx => render('index.html')),      // homepage
+        get('/services/search', services.search)    // search
+    ]
+);

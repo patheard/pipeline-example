@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-<title>Find a document - Canada.ca</title>
+<title>Find a service - Canada.ca</title>
 <meta content="width=device-width,initial-scale=1" name="viewport">
 <meta name="description" content="Web Experience Toolkit (WET) includes reusable components for building and maintaining innovative Web sites that are accessible, usable, and interoperable. These reusable components are open source software and free for use by departments and external Web communities">
 
@@ -98,7 +98,7 @@
 <main role="main" property="mainContentOfPage" class="container">
 <h1 property="name" id="wb-cont">Find a service</h1>
 
-<section class="jumbotron">
+<section class="jumbotron mrgn-bttm-0">
 	<form method="get">
 		<label class="wb-inv" for="search">Search</label>
 		<div class="input-icon">			
@@ -108,51 +108,7 @@
 	</form>
 </section>
 
-<table class="table table-striped">
-	<caption class="wb-inv">Service search results</caption>
-	<thead>
-		<tr>
-			<th>Service</th>
-			<th>Desciption</th>
-			<th>Location</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>
-				<a href="" class="icon-link">
-					<span class="fa fa-user fa-fw fa-2x pull-left mrgn-rght-sm"></span> 
-					<strong class="link">Presentation title</strong>
-					<span class="meta">1,023 kb</span>
-				</a>
-			</td>
-			<td>Or other</td>
-			<td>Ontario</td>
-		</tr>
-		<tr>
-			<td>
-				<a href="" class="icon-link">
-					<span class="fa fa-laptop fa-fw fa-2x pull-left mrgn-rght-sm"></span> 
-					<strong class="link">Presentation title</strong>
-					<span class="meta">1,023 kb</span>
-				</a>
-			</td>
-			<td>Or other</td>
-			<td>Ontario</td>
-		</tr>
-		<tr>
-			<td>
-				<a href="" class="icon-link">
-					<span class="fa fa-cog fa-fw fa-2x pull-left mrgn-rght-sm"></span> 
-					<strong class="link">Presentation title</strong>
-					<span class="meta">1,023 kb</span>
-				</a>
-			</td>
-			<td>Or other</td>
-			<td>Ontario</td>
-		</tr>			
-	</tbody>
-</table>
+<div id="results" class="row"></div>	
 
 <div class="pagedetails">
 <dl id="wb-dtmd">
@@ -207,5 +163,25 @@
 		
 		<![endif]-->
 <script src="/wet-boew/GCWeb/js/theme.min.js"></script>
+<script>
+
+(function($){
+
+	var $results = $(results);
+
+	$(document)
+		.on('keyup', '#search', function(){
+			if(this.value){
+				$.get('/services/search', {name: this.value}, function(data){
+					$results.html(data);
+				});
+			} else {
+				$results.empty();
+			}
+		});
+
+}(jQuery));
+
+</script>
 </body>
 </html>
