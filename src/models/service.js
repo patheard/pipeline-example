@@ -3,8 +3,8 @@
  */
 
 // Test data
-// TODO: move this into a proper database
-const services = [
+// TODO: move this into a database
+let services = [
     { name: 'New passport', icon: 'fa-user', location: 'Service office' },
     { name: 'Passport renewal', icon: 'fa-user', location: 'Service office' },
     { name: 'Electronic recycling', icon: 'fa-laptop', location: 'Service office' },
@@ -12,6 +12,11 @@ const services = [
     { name: 'Small business grant', icon: 'fa-hand-holding-usd', location: 'Online' },
     { name: 'Business number application', icon: 'fa-money-check-alt', location: 'Online' }
 ];
+
+// Adds a service to the list
+exports.add = (name, icon, location) => {
+    services.push({name: name, icon: icon, location: location});
+};
 
 // Find services that match a given name parameters
 exports.find = (name) => {
