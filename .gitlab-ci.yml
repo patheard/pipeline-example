@@ -1,0 +1,35 @@
+image: node:latest
+
+stages:
+  - build
+  - test
+  - deploy
+
+# This folder is cached between builds and jobs
+# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
+cache:
+  paths:
+    - node_modules/
+
+build:
+  stage: build
+  script:
+    - npm install
+
+test_unit:
+  stage: test
+  script:
+    - npm test
+
+test_security:
+  stage: test
+  script:
+    - npm audit
+
+test_a11y:
+  stage: test
+  script:
+    #- npm install phantomjs-prebuilt
+    - npm install pa11y
+    - npm start
+    - node node_modules/.bin/pa11y http://localhost:8080 --ignore "warning;notice"
