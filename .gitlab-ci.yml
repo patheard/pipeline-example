@@ -1,9 +1,9 @@
-image: alekzonder/puppeteer:1
+image: schindld/node-puppeteer:latest
 
 stages:
   - build
+  - deploy  
   - test
-  - deploy
 
 # This folder is cached between builds and jobs
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
@@ -15,6 +15,14 @@ build:
   stage: build
   script:
     - npm install
+
+deploy:
+  stage: deploy
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=$HEROKU_APP_NAME --api-key=$HEROKU_API_KEY
 
 test_unit:
   stage: test
@@ -29,7 +37,5 @@ test_security:
 test_a11y:
   stage: test
   script:
-    #- npm install phantomjs-prebuilt
     - npm install pa11y
-    - npm start &
-    - node node_modules/.bin/pa11y http://localhost:8080 --ignore "warning;notice"
+    - node node_modules/.bin/pa11y -w 1500 http://$HEROKU_APP_NAME.herokuapp.com --ignore "warning;notice"
