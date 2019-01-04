@@ -1,0 +1,14 @@
+#
+# Launches the NodeJS pipeline-demo app.  Expects that the pipeline-demo image
+# has already been built locally with the following command:
+#
+# docker build -t pipeline-demo .
+#
+
+version: '3.7'
+services:
+  pipeline-demo:
+    image: pipeline-demo:latest
+    container_name: pipeline-demo
+    ports:
+      - "8080:8080"
