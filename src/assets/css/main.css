@@ -12,8 +12,8 @@
 .input-icon .icon {
     position: absolute;
     right: 1em;
-    top: .8em;
-    width: 55px;
+    top: .9em;
+    padding: 5px;
     color: #ccc;
     transition: color .3s;
 }
@@ -72,15 +72,14 @@
 }
 
 /* WET style fixes */
+body {
+    overflow-y: scroll;
+}
+
 h1 {
     border: 0;
 }
 
 a:visited {
     color: #284162;
-}
-
-.table td {
-    padding-top: 1em !important;
-    padding-bottom: 1em !important;
 }
