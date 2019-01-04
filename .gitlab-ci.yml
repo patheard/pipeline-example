@@ -31,5 +31,5 @@ test_a11y:
   script:
     #- npm install phantomjs-prebuilt
     - npm install pa11y
-    - npm start
+    - npm start &
     - node node_modules/.bin/pa11y http://localhost:8080 --ignore "warning;notice"
