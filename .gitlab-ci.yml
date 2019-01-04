@@ -1,4 +1,4 @@
-image: schindld/node-puppeteer:latest
+image: registry.gitlab.com/patheard/pipeline-example/node-puppeteer:latest
 
 stages:
   - build
@@ -19,6 +19,8 @@ build:
 deploy:
   stage: deploy
   script:
+    - pwd
+    - ls
     - dpl --provider=heroku --app=$HEROKU_APP_NAME --api-key=$HEROKU_API_KEY
 
 test_unit:
