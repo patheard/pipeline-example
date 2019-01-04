@@ -1,5 +1,7 @@
 # docker build -t node-puppeteer .
-
+# docker tag node-puppeteer schindld/node-puppeteer:latest
+# docker login
+# docker push schindld/node-puppeteer:latest
 FROM node:latest
 
 # See https://crbug.com/795759
@@ -37,7 +39,7 @@ RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
     && chown -R pptruser:pptruser /node_modules
 
 # Run everything after as non-privileged user.
-USER pptruser
+#USER pptruser
 
 ENTRYPOINT ["dumb-init", "--"]
 CMD ["google-chrome-unstable"]
