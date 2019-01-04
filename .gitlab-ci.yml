@@ -19,10 +19,6 @@ build:
 deploy:
   stage: deploy
   script:
-    - apt-get update -qy
-    - apt-get install -y ruby-dev
-    - gem install dpl
-    - cd $CI_PROJECT_DIR
     - dpl --provider=heroku --app=$HEROKU_APP_NAME --api-key=$HEROKU_API_KEY
 
 test_unit:
