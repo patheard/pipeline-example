@@ -1,4 +1,5 @@
 *.log
-npm-debug.log*
-node_modules
 .env
+node_modules
+npm-debug.log*
+test/results/*.png

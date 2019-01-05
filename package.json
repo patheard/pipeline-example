@@ -27,6 +27,7 @@
     "tough-cookie": "2.3.2"
   },
   "devDependencies": {
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "pa11y": "^5.1.0"
   }
 }
