@@ -19,8 +19,6 @@ build:
 deploy:
   stage: deploy
   script:
-    - pwd
-    - ls
     - dpl --provider=heroku --app=$HEROKU_APP_NAME --api-key=$HEROKU_API_KEY
 
 test_unit:
