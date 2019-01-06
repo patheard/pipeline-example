@@ -103,7 +103,7 @@
 		<label class="wb-inv" for="search">Search</label>
 		<div class="input-icon">			
 			<input type="text" class="form-control width-100" id="search" placeholder="Start typing to search...">
-			<span class="fa fa-search icon"></span>
+			<button type="submit" class="icon" id="search-button"><span class="fa fa-search"></span></button>
 		</div>
 	</form>
 </section>
@@ -167,17 +167,20 @@
 
 (function($){
 
-	var $results = $(results);
+	var $search = $('#search');
+		$results = $('#results');
 
 	$(document)
-		.on('keyup', '#search', function(){
-			if(this.value){
-				$.get('/services/search', {name: this.value}, function(data){
+		.on('keyup click', '#search, #search-button', function(){
+			var val = $search.val();
+			if(val){
+				$.get('/services/search', {name: val}, function(data){
 					$results.html(data);
 				});
 			} else {
 				$results.empty();
 			}
+			return false;
 		});
 
 }(jQuery));
