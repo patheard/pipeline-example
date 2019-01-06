@@ -11,10 +11,12 @@
 
 .input-icon .icon {
     position: absolute;
-    right: 1em;
-    top: .9em;
-    padding: 5px;
+    right: .8em;
+    top: .8em;
+    font-size: 1.2em;
     color: #ccc;
+    background: 0;
+    border: 0;
     transition: color .3s;
 }
 

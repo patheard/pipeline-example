@@ -9,6 +9,7 @@ pa11y('http://localhost:8080/', {
     standard: 'WCAG2AA',
     actions: [
         'set field #search to passport',
+        'click element #search-button',
         'screen capture test/results/services-search.pa11y.png'
     ]
 }).then((results) => {
