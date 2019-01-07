@@ -31,14 +31,30 @@ test('Find services by partial match (mixed case)', () => {
   ]);
 });
 
-// Add a service
-test('Add a new service', () => {
-  // Check doesn't exist
-  expect(service.find('Blep').length).toBe(0);
+test('Add a new service', () => {  
+  expect(service.find('Blep').length).toBe(0); // Check doesn't exist
 
-  // Add it and check again
-  service.add('Blep', 'fa-blep', 'Pluto');
+  service.add('Blep', 'fa-blep', 'Pluto'); // Add it and check again
   expect(service.find('Blep')).toEqual([
     { name: 'Blep', icon: 'fa-blep', location: 'Pluto' }
   ]);
+});
+
+test('Modify a service', () => {
+  expect(service.find('Blep')).toEqual([
+    { name: 'Blep', icon: 'fa-blep', location: 'Pluto' }
+  ]);
+
+  service.edit('Blep', {name: 'Beezor', icon: 'fa-beezor', locatin: 'Somewhere'})
+  
+  expect(service.find('Blep').length).toBe(0);
+  expect(service.find('Beezor')).toEqual([
+    {name: 'Beezor', icon: 'fa-beezor', location: 'Somewhere'}
+  ]);
+});
+
+test('Delete a service', () => {
+  expect(service.find('Beezor').length).toBe(1);
+  service.delete('Beezor');
+  expect(service.find('Beezor').length).toBe(0);
 });

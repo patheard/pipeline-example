@@ -13,10 +13,23 @@ let services = [
     { name: 'Business number application', icon: 'fa-money-check-alt', location: 'Online' }
 ];
 
-// Adds a service to the list
+// Adds a service
 exports.add = (name, icon, location) => {
     services.push({name: name, icon: icon, location: location});
 };
+
+// Modify a service
+exports.edit = (name, updatedService) => {
+    const idx = services.findIndex(obj => obj.name === name);
+    if(idx !== -1){
+        services[idx] = updatedService;
+    }
+};
+
+// Delete a service
+exports.delete = (name) => {
+    services = services.filter(obj => obj.name !== name);
+}
 
 // Find services that match a given name parameters
 exports.find = (name) => {
