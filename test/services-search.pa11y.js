@@ -1,11 +1,19 @@
 /**
- * Proof of concept using pa11y actions.
- * TODO: figure out why JS actions aren't executed by actions.
+ * a11y testing of search screen.
  */
 
 const pa11y = require('pa11y');
+const cli = require('pa11y-reporter-cli');
 
-pa11y('http://localhost:8080/', {
+// Check if a URL was passed, default to localhost if not
+let url = 'http://localhost:8080';
+const args = process.argv.slice(2); // remove the node.exe and script name
+if(args.length){
+    url = args[0];
+}
+
+// Run the a11y tests
+pa11y(url, {
     standard: 'WCAG2AA',
     actions: [
         'set field #search to passport',
@@ -13,5 +21,8 @@ pa11y('http://localhost:8080/', {
         'screen capture test/results/services-search.pa11y.png'
     ]
 }).then((results) => {
-    console.log(results);
+    if('issues' in results){ 
+        console.log(cli.results(results));
+        process.exit(1); // exit with error code
+    }    
 });
