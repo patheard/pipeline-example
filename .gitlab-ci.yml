@@ -11,6 +11,8 @@ cache:
   paths:
     - node_modules/
 
+#### BUILD STAGE JOB(S) ####
+
 build:
   stage: build
   tags:
@@ -18,33 +20,37 @@ build:
   script:
     - npm install
 
-test_unit:
+#### TEST STAGE JOB(S) ####
+
+unit_tests:
   stage: test
   tags:
     - docker
   script:
     - npm test
 
-test_security:
+security_audit:
   stage: test
   tags:
     - docker
   script:
     - npm audit
 
-test_a11y:
+accessibility:
   stage: test
   tags:
     - docker
   script:
     - npm start &
     # Wait until the website is up before continuing
-    - wget --retry-connrefused --tries 30 --waitretry 3 -q --spider http://localhost:8080
+    - wget --retry-connrefused --tries 30 --waitretry 3 --spider http://localhost:8080
     - node ./test/services-search.pa11y.js http://localhost:8080
   artifacts:
     when: always
     paths: 
     - ./test/results
+
+#### DEPLOY STAGE JOB(S) ####
 
 deploy:
   stage: deploy
