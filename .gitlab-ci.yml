@@ -43,7 +43,7 @@ accessibility:
   script:
     - npm start &
     # Wait until the website is up before continuing
-    - wget --retry-connrefused --tries 30 --waitretry 3 --spider http://localhost:8080
+    - wget --retry-connrefused --tries 30 --waitretry 3 -qO- http://localhost:8080 &> /dev/null
     - node ./test/services-search.pa11y.js http://localhost:8080
   artifacts:
     when: always
