@@ -19,10 +19,15 @@ pa11y(url, {
         'set field #search to passport',
         'click element #search-button',
         'screen capture test/results/services-search.pa11y.png'
-    ]
+    ],
+    chromeLaunchConfig: {
+        args: ['--no-sandbox']
+    }
 }).then((results) => {
-    if('issues' in results){ 
-        console.log(cli.results(results));
+    console.log(cli.results(results));
+    if('issues' in results && results.issues.length){ 
         process.exit(1); // exit with error code
-    }    
+    } else {
+        process.exit();  // exit with success
+    }
 });
