@@ -2,8 +2,8 @@ image: registry.gitlab.com/patheard/pipeline-example/node-puppeteer:latest
 
 stages:
   - build
-  - deploy  
   - test
+  - deploy
 
 # This folder is cached between builds and jobs
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
@@ -13,29 +13,43 @@ cache:
 
 build:
   stage: build
+  tags:
+    - docker # tells gitlab to use one of the gitlab.com shared docker runners
   script:
     - npm install
 
-deploy:
-  stage: deploy
-  script:
-    - dpl --provider=heroku --app=$HEROKU_APP_NAME --api-key=$HEROKU_API_KEY
-
 test_unit:
   stage: test
+  tags:
+    - docker
   script:
     - npm test
 
 test_security:
   stage: test
+  tags:
+    - docker
   script:
     - npm audit
 
 test_a11y:
   stage: test
+  tags:
+    - docker
   script:
-    - node ./test/services-search.pa11y.js http://$HEROKU_APP_NAME.herokuapp.com
+    - npm start
+    # Wait until the website is up before continuing
+    - wget --retry-connrefused --tries 30 --waitretry 3 -q --spider http://localhost:8080
+    - node ./test/services-search.pa11y.js http://localhost:8080
   artifacts:
     when: always
     paths: 
     - ./test/results
+
+deploy:
+  stage: deploy
+  tags:
+    - docker
+  script:
+    # deploy it to http://$HEROKU_APP_NAME.herokuapp.com
+    - dpl --provider=heroku --app=$HEROKU_APP_NAME --api-key=$HEROKU_API_KEY

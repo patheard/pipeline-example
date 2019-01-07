@@ -18,4 +18,6 @@ server(
         get('/', ctx => render('index.html')),      // homepage
         get('/services/search', services.search)    // search
     ]
-);
+).then(ctx => {
+    console.log(`Server is running on port ${ctx.options.port}`);
+});
