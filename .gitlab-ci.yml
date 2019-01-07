@@ -37,7 +37,7 @@ test_a11y:
   tags:
     - docker
   script:
-    - npm start
+    - npm start &
     # Wait until the website is up before continuing
     - wget --retry-connrefused --tries 30 --waitretry 3 -q --spider http://localhost:8080
     - node ./test/services-search.pa11y.js http://localhost:8080
