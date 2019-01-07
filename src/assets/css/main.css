@@ -35,7 +35,7 @@
 
     background: #f2f2f2;    
     border-radius: 4px;
-    transition: all .1s;
+    transition: all .2s;
 }
 
 .icon-link svg {
@@ -48,7 +48,6 @@
     font-size: 2.4em;
 
     border-right: 1px solid #ccc;
-    transition: all .1s;
 }
 
 .icon-link strong {
@@ -58,16 +57,20 @@
 .icon-link .meta {
     display: block;
     font-size: .9em;
-    color: #777 !important;
+    color: #777;
 }
 
 .icon-link:hover {
+    color: #3691f7;
     background: #ededed;
 }
 
-.icon-link:hover svg {
-    color: #3691f7;
+.icon-link:hover svg {    
     border-color: #bbb;
+}
+
+.icon-link:hover .meta {    
+    color: #666;
 }
 
 .width-100 {
