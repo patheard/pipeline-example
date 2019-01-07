@@ -56,6 +56,9 @@ deploy:
   stage: deploy
   tags:
     - docker
+  environment:
+    name: production
+    url: http://$HEROKU_APP_NAME.herokuapp.com
   script:
-    # deploy it to http://$HEROKU_APP_NAME.herokuapp.com
+    # deploy it using heroku's command line utility
     - dpl --provider=heroku --app=$HEROKU_APP_NAME --api-key=$HEROKU_API_KEY
