@@ -2,6 +2,7 @@
 # docker tag node-puppeteer registry.gitlab.com/patheard/pipeline-example/node-puppeteer:latest
 # docker login registry.gitlab.com
 # docker push registry.gitlab.com/patheard/pipeline-example/node-puppeteer:latest
+# docker logout registry.gitlab.com
 FROM node:slim
 
 # See https://crbug.com/795759
@@ -9,7 +10,7 @@ RUN apt-get update && apt-get install -yq libgconf-2-4
 
 # Install latest chrome dev package
 # Note: this installs the necessary libs to make the bundled version of Chromium that Puppeteer installs, work.
-RUN apt-get update && apt-get install -y wget ruby-dev --no-install-recommends \
+RUN apt-get update && apt-get install -y wget ruby-dev git --no-install-recommends \
     && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
     && apt-get update \
