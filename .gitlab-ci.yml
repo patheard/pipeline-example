@@ -50,6 +50,20 @@ accessibility:
     paths: 
     - ./test/results
 
+behaviour:
+  stage: test
+  tags:
+    - docker
+  script:
+    - npm start &
+    # Wait until the website is up before continuing
+    - wget --retry-connrefused --tries 30 --waitretry 3 -qO- http://localhost:8080 &> /dev/null
+    - node ./node_modules/.bin/jest ./test/services-search.feature.test.js
+  artifacts:
+    when: always
+    paths: 
+    - ./test/results
+
 #### DEPLOY STAGE JOB(S) ####
 
 deploy:
