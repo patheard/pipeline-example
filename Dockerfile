@@ -32,6 +32,3 @@ WORKDIR /home/pptruser
 # Install puppeteer and other demo dev and prod deps so they're available in the container.
 COPY package*.json ./
 RUN npm install
-
-# just run the container and wait
-ENTRYPOINT ["sh", "-c", "sleep infinity"]
