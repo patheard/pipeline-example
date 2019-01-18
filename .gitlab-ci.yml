@@ -1,5 +1,3 @@
-image: registry.gitlab.com/patheard/pipeline-example/node-puppeteer:latest
-
 stages:
   - build
   - test
@@ -15,6 +13,9 @@ cache:
 
 build:
   stage: build
+  image:
+    name: registry.gitlab.com/patheard/pipeline-example/node-puppeteer:latest
+    entrypoint: [""]
   tags:
     - docker # tells gitlab to use one of the gitlab.com shared docker runners
   script:
@@ -24,6 +25,9 @@ build:
 
 unit_tests:
   stage: test
+  image:
+    name: registry.gitlab.com/patheard/pipeline-example/node-puppeteer:latest
+    entrypoint: [""]
   tags:
     - docker
   script:
@@ -31,6 +35,9 @@ unit_tests:
 
 security_audit:
   stage: test
+  image:
+    name: registry.gitlab.com/patheard/pipeline-example/node-puppeteer:latest
+    entrypoint: [""]
   tags:
     - docker
   script:
@@ -38,6 +45,7 @@ security_audit:
 
 accessibility:
   stage: test
+  image: registry.gitlab.com/patheard/pipeline-example/node-puppeteer:latest
   tags:
     - docker
   script:
@@ -51,6 +59,7 @@ accessibility:
 
 behaviour:
   stage: test
+  image: registry.gitlab.com/patheard/pipeline-example/node-puppeteer:latest
   tags:
     - docker
   script:
@@ -66,6 +75,9 @@ behaviour:
 
 deploy:
   stage: deploy
+  image:
+    name: registry.gitlab.com/patheard/pipeline-example/node-puppeteer:latest
+    entrypoint: [""]
   tags:
     - docker
   environment:
