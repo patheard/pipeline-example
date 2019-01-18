@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "jest -- --testPathPattern models"
+    "test": "jest -- --testPathPattern models",
+    "a11y": "node ./test/services-search.pa11y.js http://localhost:8080",
+    "behaviour": "jest ./test/services-search.feature.test.js"
   },
   "repository": {
     "type": "git",

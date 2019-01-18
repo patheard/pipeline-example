@@ -21,7 +21,7 @@ pa11y(url, {
         'screen capture test/results/services-search.pa11y.png'
     ],
     chromeLaunchConfig: {
-        args: ['--no-sandbox']
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
     }
 }).then((results) => {
     console.log(cli.results(results));

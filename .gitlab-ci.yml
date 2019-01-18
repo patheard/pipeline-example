@@ -41,10 +41,9 @@ accessibility:
   tags:
     - docker
   script:
-    - npm start &
     # Wait until the website is up before continuing
     - wget --retry-connrefused --tries 30 --waitretry 3 -qO- http://localhost:8080 &> /dev/null
-    - node ./test/services-search.pa11y.js http://localhost:8080
+    - npm run a11y
   artifacts:
     when: always
     paths: 
@@ -55,10 +54,9 @@ behaviour:
   tags:
     - docker
   script:
-    - npm start &
     # Wait until the website is up before continuing
     - wget --retry-connrefused --tries 30 --waitretry 3 -qO- http://localhost:8080 &> /dev/null
-    - node ./node_modules/.bin/jest ./test/services-search.feature.test.js
+    - npm run behaviour
   artifacts:
     when: always
     paths: 
