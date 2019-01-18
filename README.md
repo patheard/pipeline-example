@@ -54,7 +54,7 @@ docker exec -it pipeline-example node ./test/services-search.pa11y.js http://loc
 
 # Behaviour tests
 ## Locally with NodeJS
-Make sure the app is running, then:
+Make sure the app is running, and then:
 ```bash
 node ./node_modules/.bin/jest ./test/services-search.feature.test.js
 ```
