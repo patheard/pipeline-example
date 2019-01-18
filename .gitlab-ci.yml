@@ -1,3 +1,7 @@
+image:
+  name: registry.gitlab.com/patheard/pipeline-example/node-puppeteer:latest
+  entrypoint: [""]
+    
 stages:
   - build
   - test
@@ -13,9 +17,6 @@ cache:
 
 build:
   stage: build
-  image:
-    name: registry.gitlab.com/patheard/pipeline-example/node-puppeteer:latest
-    entrypoint: [""]
   tags:
     - docker # tells gitlab to use one of the gitlab.com shared docker runners
   script:
@@ -25,9 +26,6 @@ build:
 
 unit_tests:
   stage: test
-  image:
-    name: registry.gitlab.com/patheard/pipeline-example/node-puppeteer:latest
-    entrypoint: [""]
   tags:
     - docker
   script:
@@ -35,9 +33,6 @@ unit_tests:
 
 security_audit:
   stage: test
-  image:
-    name: registry.gitlab.com/patheard/pipeline-example/node-puppeteer:latest
-    entrypoint: [""]
   tags:
     - docker
   script:
@@ -45,10 +40,10 @@ security_audit:
 
 accessibility:
   stage: test
-  image: registry.gitlab.com/patheard/pipeline-example/node-puppeteer:latest
   tags:
     - docker
   script:
+    - npm start &
     # Wait until the website is up before continuing
     - wget --retry-connrefused --tries 30 --waitretry 3 -qO- http://localhost:8080 &> /dev/null
     - npm run a11y
@@ -59,10 +54,10 @@ accessibility:
 
 behaviour:
   stage: test
-  image: registry.gitlab.com/patheard/pipeline-example/node-puppeteer:latest
   tags:
     - docker
   script:
+    - npm start &
     # Wait until the website is up before continuing
     - wget --retry-connrefused --tries 30 --waitretry 3 -qO- http://localhost:8080 &> /dev/null
     - npm run behaviour
@@ -75,9 +70,6 @@ behaviour:
 
 deploy:
   stage: deploy
-  image:
-    name: registry.gitlab.com/patheard/pipeline-example/node-puppeteer:latest
-    entrypoint: [""]
   tags:
     - docker
   environment:
