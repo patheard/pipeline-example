@@ -7,7 +7,9 @@
     "start": "node index.js",
     "test": "jest -- --testPathPattern models",
     "a11y": "node ./test/services-search.pa11y.js http://localhost:8080",
-    "behaviour": "jest ./test/services-search.feature.test.js"
+    "behaviour": "jest ./test/services-search.feature.test.js",
+    "pipeline:break": "git apply --ignore-space-change --ignore-whitespace ./patch/break.patch && npm install",
+    "pipeline:fix": "git apply --ignore-space-change --ignore-whitespace ./patch/fix.patch && npm install"
   },
   "repository": {
     "type": "git",
@@ -26,7 +28,7 @@
   "homepage": "https://gitlab.com/patheard/pipeline-example#README",
   "dependencies": {
     "server": "1.0.18",
-    "tough-cookie": "2.3.2"
+    "tough-cookie": "2.5.0"
   },
   "devDependencies": {
     "jest": "23.6.0",

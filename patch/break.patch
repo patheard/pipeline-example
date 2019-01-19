@@ -1,0 +1,39 @@
+diff --git a/package.json b/package.json
+index 220fe47..d455c80 100644
+--- a/package.json
++++ b/package.json
+@@ -26,7 +26,7 @@
+   "homepage": "https://gitlab.com/patheard/pipeline-example#README",
+   "dependencies": {
+     "server": "1.0.18",
+-    "tough-cookie": "2.5.0"
++    "tough-cookie": "2.3.2"
+   },
+   "devDependencies": {
+     "jest": "23.6.0",
+diff --git a/src/models/service.js b/src/models/service.js
+index 9bce793..cbd43be 100644
+--- a/src/models/service.js
++++ b/src/models/service.js
+@@ -34,6 +34,6 @@ exports.delete = (name) => {
+ // Find services that match a given name parameters
+ exports.find = (name) => {
+     const regex = new RegExp(name, 'i');
+-    const matchingServices = services.filter(obj => obj.name.search(regex) !== -1);
++    const matchingServices = services.filter(obj => null);
+     return matchingServices.sort((a, b) => a.name.localeCompare(b.name));
+ };
+\ No newline at end of file
+diff --git a/src/views/index.html b/src/views/index.html
+index b907fcc..8fb90bb 100644
+--- a/src/views/index.html
++++ b/src/views/index.html
+@@ -103,7 +103,7 @@
+ 		<label class="wb-inv" for="search">Search</label>
+ 		<div class="input-icon">			
+ 			<input type="text" class="form-control width-100" id="search" placeholder="Start typing to search...">
+-			<button type="submit" class="icon" id="search-button" title="Search"><span class="fa fa-search"></span></button>
++			<button type="submit" class="icon" id="search-button"><span class="fa fa-search"></span></button>
+ 		</div>
+ 	</form>
+ </section>
