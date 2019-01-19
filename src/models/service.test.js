@@ -45,7 +45,7 @@ test('Modify a service', () => {
     { name: 'Blep', icon: 'fa-blep', location: 'Pluto' }
   ]);
 
-  service.edit('Blep', {name: 'Beezor', icon: 'fa-beezor', locatin: 'Somewhere'})
+  service.edit('Blep', {name: 'Beezor', icon: 'fa-beezor', location: 'Somewhere'})
   
   expect(service.find('Blep').length).toBe(0);
   expect(service.find('Beezor')).toEqual([
