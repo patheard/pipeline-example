@@ -34,6 +34,6 @@ exports.delete = (name) => {
 // Find services that match a given name parameters
 exports.find = (name) => {
     const regex = new RegExp(name, 'i');
-    const matchingServices = services.filter(obj => null);
+    const matchingServices = services.filter(obj => obj.name.search(regex) !== -1);
     return matchingServices.sort((a, b) => a.name.localeCompare(b.name));
 };
