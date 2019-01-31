@@ -33,6 +33,7 @@ describe('Find Government of Canada services', () => {
     await page.waitForSelector('#search');
     await page.type('#search', 'passport');
     await page.waitForSelector('#results .icon-link');
+    await page.waitFor(1000); // give the request a second to re-render
     expect(await page.$eval('#results h2', text => text.innerHTML)).toBe('Services found: 2');
     await page.screenshot({path: 'test/results/services-search.feature.test.png'});
   });
