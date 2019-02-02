@@ -17,6 +17,8 @@ jobs:
       - run: npm install
       - persist_to_workspace:
           root: /tmp/workspace
+          paths:
+            - . # Save the entire working directory
 
   # Accessibility tests against locally running service using pa11y
   accessibility_test:
