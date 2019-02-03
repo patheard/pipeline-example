@@ -6,6 +6,15 @@ references:
     docker:
       - image: patheard/node-puppeteer:latest # Node with headless Chrome dependencies
     working_directory: /tmp/workspace
+  steps:
+    - &persist_to_workspace
+      persist_to_workspace:
+        root: /tmp/workspace
+        paths:
+          - . # Save the entire working directory
+    - &attach_workspace
+      attach_workspace:
+        at: /tmp/workspace    
 
 jobs:
 
@@ -15,17 +24,13 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - persist_to_workspace:
-          root: /tmp/workspace
-          paths:
-            - . # Save the entire working directory
+      - *persist_to_workspace
 
   # Accessibility tests against locally running service using pa11y
   accessibility_test:
     <<: *container_config
     steps:
-      - attach_workspace:
-          at: /tmp/workspace
+      - *attach_workspace
       - run: 
           command: |
             npm start &
@@ -36,8 +41,7 @@ jobs:
   behaviour_test:
     <<: *container_config
     steps:
-      - attach_workspace:
-          at: /tmp/workspace
+      - *attach_workspace
       - run:
           command: |
             npm start &
@@ -48,16 +52,14 @@ jobs:
   security_test:
     <<: *container_config
     steps:
-      - attach_workspace:
-          at: /tmp/workspace  
+      - *attach_workspace
       - run: npm audit  
 
   # Unit tests using JEST
   unit_test:
     <<: *container_config
     steps:
-      - attach_workspace:
-          at: /tmp/workspace    
+      - *attach_workspace 
       - run: npm test
 
   # Deploy to Heroku environment
