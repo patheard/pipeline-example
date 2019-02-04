@@ -11,9 +11,7 @@ npm start
 ## With Docker
 There is a pre-built image on gitlab.com you can run.
 ```bash
-docker login registry.gitlab.com
-docker run -it --rm -d --name pipeline-example -p 8080:8080 registry.gitlab.com/patheard/pipeline-example/node-puppeteer:latest
-docker logout registry.gitlab.com
+docker run -it --rm -d --name pipeline-example -p 8080:8080 patheard/node-puppeteer:latest
 docker cp . pipeline-example:/home/pptruser/
 docker exec -it pipeline-example npm test
 docker exec -it pipeline-example npm start &
