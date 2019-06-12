@@ -1,4 +1,7 @@
 # What's this?
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/patheard/pipeline-example.svg)](https://greenkeeper.io/)
+
 An example project showing how a Continuous Integration (CI) and Continous Delivery (CD) pipeline can be used to improve code quality, security and stability.
 
 # Run the project
