@@ -7,7 +7,7 @@ index 746157b..5388a4c 100644
    "dependencies": {
      "server": "1.0.18",
 -    "tough-cookie": "2.3.2"
-+    "tough-cookie": "2.5.0"
++    "tough-cookie": "3.0.1"
    },
    "devDependencies": {
      "jest": "23.6.0",

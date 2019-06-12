@@ -6,7 +6,7 @@ index 220fe47..d455c80 100644
    "homepage": "https://gitlab.com/patheard/pipeline-example#README",
    "dependencies": {
      "server": "1.0.18",
--    "tough-cookie": "2.5.0"
+-    "tough-cookie": "3.0.1"
 +    "tough-cookie": "2.3.2"
    },
    "devDependencies": {
