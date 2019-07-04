@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "jest": "^24.8.0",
-    "pa11y": "5.1.0",
+    "pa11y": "5.2.0",
     "puppeteer": "^1.17.0"
   }
 }
