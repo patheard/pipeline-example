@@ -9,7 +9,9 @@
     "a11y": "node ./test/services-search.pa11y.js http://localhost:8080",
     "behaviour": "jest ./test/services-search.feature.test.js",
     "pipeline:break": "git apply --ignore-space-change --ignore-whitespace ./patch/break.patch && npm install",
-    "pipeline:fix": "git apply --ignore-space-change --ignore-whitespace ./patch/fix.patch && npm install"
+    "pipeline:fix": "git apply --ignore-space-change --ignore-whitespace ./patch/fix.patch && npm install",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -28,11 +30,12 @@
   "homepage": "https://gitlab.com/patheard/pipeline-example#README",
   "dependencies": {
     "server": "1.0.19",
-    "tough-cookie": "3.0.1"
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "jest": "^24.8.0",
     "pa11y": "5.2.0",
     "puppeteer": "^1.17.0"
-  }
+  },
+  "snyk": true
 }
