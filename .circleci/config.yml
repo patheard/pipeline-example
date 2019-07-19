@@ -53,7 +53,7 @@ jobs:
     <<: *container_config
     steps:
       - *attach_workspace
-      - run: npm audit  
+      - run: npm run snyk-test   
 
   # Unit tests using JEST
   unit_test:

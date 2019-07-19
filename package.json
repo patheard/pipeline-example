@@ -11,6 +11,7 @@
     "pipeline:break": "git apply --ignore-space-change --ignore-whitespace ./patch/break.patch && npm install",
     "pipeline:fix": "git apply --ignore-space-change --ignore-whitespace ./patch/fix.patch && npm install",
     "snyk-protect": "snyk protect",
+    "snyk-test": "snyk auth $SNYK_TOKEN && snyk test",
     "prepare": "npm run snyk-protect"
   },
   "repository": {
