@@ -1,6 +1,19 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
 version: v1.13.5
-ignore: {}
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-JS-HANDLEBARS-480388:
+    - server > hbs > handlebars:
+        reason: No patch available
+        expires: '2020-01-17T15:55:49.086Z'
+  SNYK-JS-HANDLEBARS-534478:
+    - server > hbs > handlebars:
+        reason: No patch available
+        expires: '2020-01-17T15:55:49.086Z'
+  SNYK-JS-HANDLEBARS-534988:
+    - server > hbs > handlebars:
+        reason: No patch available
+        expires: '2020-01-17T15:55:49.086Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   SNYK-JS-LODASH-450202:
