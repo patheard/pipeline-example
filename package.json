@@ -31,7 +31,7 @@
   "homepage": "https://gitlab.com/patheard/pipeline-example#README",
   "dependencies": {
     "server": "1.0.19",
-    "snyk": "^1.240.2"
+    "snyk": "^1.262.2"
   },
   "devDependencies": {
     "jest": "^24.9.0",
