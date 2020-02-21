@@ -30,7 +30,7 @@
   },
   "homepage": "https://gitlab.com/patheard/pipeline-example#README",
   "dependencies": {
-    "server": "1.0.24",
+    "server": "1.0.26",
     "snyk": "^1.290.1"
   },
   "devDependencies": {
