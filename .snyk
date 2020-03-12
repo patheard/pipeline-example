@@ -14,6 +14,16 @@ ignore:
     - server > hbs > handlebars:
         reason: No patch available
         expires: '2020-01-17T15:55:49.086Z'
+  SNYK-JS-MINIMIST-559764:
+    - server > hbs > handlebars > optimist > minimist:
+        reason: None given
+        expires: '2020-04-11T18:11:15.659Z'
+    - snyk > @snyk/update-notifier > latest-version > package-json > registry-auth-token > rc > minimist:
+        reason: None given
+        expires: '2020-04-11T18:11:15.659Z'
+    - snyk > @snyk/update-notifier > latest-version > package-json > registry-url > rc > minimist:
+        reason: None given
+        expires: '2020-04-11T18:11:15.659Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   SNYK-JS-LODASH-450202:
