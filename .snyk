@@ -17,7 +17,7 @@ ignore:
   SNYK-JS-MINIMIST-559764:
     - server > hbs > handlebars > optimist > minimist:
         reason: None given
-        expires: '2020-04-11T18:11:15.659Z'
+        expires: '2020-05-14T18:22:27.293Z'
     - snyk > @snyk/update-notifier > latest-version > package-json > registry-auth-token > rc > minimist:
         reason: None given
         expires: '2020-04-11T18:11:15.659Z'
