@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.5
+version: v1.14.1
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   SNYK-JS-HANDLEBARS-480388:
@@ -24,6 +24,10 @@ ignore:
     - snyk > @snyk/update-notifier > latest-version > package-json > registry-url > rc > minimist:
         reason: None given
         expires: '2020-04-11T18:11:15.659Z'
+  SNYK-JS-THENIFY-571690:
+    - server > mz > thenify-all > thenify:
+        reason: None given
+        expires: '2020-07-17T13:57:15.291Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   SNYK-JS-LODASH-450202:
@@ -65,10 +69,16 @@ patch:
   SNYK-JS-LODASH-567746:
     - snyk > @snyk/dep-graph > lodash:
         patched: '2020-05-01T20:46:43.461Z'
+      server > pug > pug-filters > constantinople > babel-types > lodash:
+        patched: '2020-06-17T13:17:16.891Z'
     - snyk > inquirer > lodash:
         patched: '2020-05-01T20:46:43.461Z'
+      server > pug > pug-code-gen > pug-attrs > constantinople > babel-types > lodash:
+        patched: '2020-06-17T13:17:16.891Z'
     - snyk > snyk-nodejs-lockfile-parser > lodash:
         patched: '2020-05-01T20:46:43.461Z'
+      server > pug > pug-code-gen > constantinople > babel-types > lodash:
+        patched: '2020-06-17T13:17:16.891Z'
     - snyk > snyk-nuget-plugin > lodash:
         patched: '2020-05-01T20:46:43.461Z'
     - snyk > @snyk/snyk-cocoapods-plugin > @snyk/dep-graph > lodash:
